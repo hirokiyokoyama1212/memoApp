@@ -2,11 +2,12 @@ require "csv"
  
 puts "1(新規でメモを作成) 2(既存のメモ編集する)"
 
-memo_type = gets.to_s　#入力された値（１or２）を文字列としてmemo_typeに代入
+memo_type = gets.to_s　
 
 if memo_type == "1"
 	puts "拡張子を除いたファイル名を入力してください"
-	file_name = gets     #入力された拡張子ファイル名をfile_nameに代入
+	
+	file_name = gets     
 	
 	puts "メモしたい内容を記入してください"
 	puts "完了したらCtrl＋Dを押下してください"
@@ -19,13 +20,14 @@ if memo_type == "1"
 
 elsif memo_type == "2"
   puts "拡張子を除いたファイル名を入力してください"
-  file_name = gets      #入力された拡張子ファイル名をfile_nameに代入
+  
+  file_name = gets      
   
   puts "追記したい内容を記入してください"
   memo = gets
   
   CSV.open("#{file_name}.csv","a") do |write|
-    write << 	["#{memo}"]
+    write << ["#{memo}"]
   end	
 
 else
